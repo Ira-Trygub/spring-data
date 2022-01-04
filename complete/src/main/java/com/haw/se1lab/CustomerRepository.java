@@ -1,4 +1,4 @@
-package com.example.accessingdatajpa;
+package com.haw.se1lab;
 
 import java.util.List;
 
