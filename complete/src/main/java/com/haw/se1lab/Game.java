@@ -4,21 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Game {
     private String theme;
     private int gamersAmount;
     @OneToMany(fetch = FetchType.EAGER)
-    private Question question;
+    private List<Question> questionList;
     @Id
     @GeneratedValue
     private Long id;
 
-    public Game(String theme, int gamersAmount, Question question) {
+    public Game(String theme, int gamersAmount) {
         this.theme = theme;
         this.gamersAmount = gamersAmount;
-        this.question = question;
     }
 
     public Game() {
@@ -40,13 +40,9 @@ public class Game {
         this.gamersAmount = gamersAmount;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
 
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+
+
 
     public Long getId() {
         return id;
