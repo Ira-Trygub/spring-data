@@ -1,8 +1,7 @@
 package com.haw.se1lab;
 
 public class Ladder {
-
-    public User getLeader(){
+    public User getLeader() {
         return null;
     }
 }

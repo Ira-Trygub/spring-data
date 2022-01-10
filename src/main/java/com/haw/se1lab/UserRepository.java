@@ -1,23 +1,13 @@
 package com.haw.se1lab;
 
-import com.haw.se1lab.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.repository.CrudRepository;
 
-import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findById(long id);
 
-    @Query("select c from User c where c.id = :id")
-    Optional<User> findById(@Param("UserID") long id);
+    List<User> findByName(String name);
 
-    @Query("select c from User c where c.name = :name")
-    List<User> findByName(@Param("name") String name);
-
-    @Transactional
-        // causes the method to be executed in a database transaction (required for write operations)
-    void deleteByUserId(long id);
+    long deleteById(long id);
 }

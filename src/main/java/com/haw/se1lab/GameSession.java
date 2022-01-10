@@ -3,26 +3,24 @@ package com.haw.se1lab;
 import com.haw.se1lab.GameStatus;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
-@Component
 @Entity
 public class GameSession {
     private int points;
-    private final List<User> rival;
+//    private final List<User> rival;
     private int timer;
     private boolean winner;
+    @Enumerated(EnumType.ORDINAL)
     private GameStatus status;
     @Id
     @GeneratedValue
     private Long id;
 
-    public GameSession(int points, List<User> rival, int timer, boolean winner, GameStatus status) {
+    public GameSession(int points, /*List<User> rival,*/ int timer, boolean winner, GameStatus status) {
         this.points = points;
-        this.rival = rival;
+//        this.rival = rival;
         this.timer = timer;
         this.winner = winner;
         this.status = status;
@@ -34,10 +32,6 @@ public class GameSession {
 
     public void setPoints(int points) {
         this.points = points;
-    }
-
-    public List<User> getRival() {
-        return rival;
     }
 
     public int getTimer() {

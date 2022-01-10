@@ -12,11 +12,12 @@ public class Question {
     @Id
     @GeneratedValue
     private Long id;
+
     private String theme;
     private String questionBody;
     private String answer;
 
-    public Question( String theme, String questionBody, String answer) {
+    public Question(String theme, String questionBody, String answer) {
         this.theme = theme;
         this.questionBody = questionBody;
         this.answer = answer;
